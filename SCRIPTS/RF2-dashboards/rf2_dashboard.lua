@@ -352,13 +352,17 @@ local function updateModelStats(wgt)
     local flight_count_from_flight_widget = model.getGlobalVariable(8, 0)
     local flight_count_from_firmware_2_4 = rf2_curr_model_static_data.total_flights
     local num_flights
-    if (flight_count_from_firmware_2_4 == nil or flight_count_from_firmware_2_4 == 0)
-        and flight_count_from_flight_widget ~= nil
-        and flight_count_from_flight_widget >= 0
-    then
+    if (wgt.options.flightsCounterSource == 1) then -- use flight widget counter
         num_flights = flight_count_from_flight_widget
-    else
-        num_flights = flight_count_from_firmware_2_4
+    else -- use RF2 firmware counter or fallback to flight widget counter if RF2 firmware counter is not available
+        if (flight_count_from_firmware_2_4 == nil or flight_count_from_firmware_2_4 == 0)
+            and flight_count_from_flight_widget ~= nil
+            and flight_count_from_flight_widget >= 0
+        then
+            num_flights = flight_count_from_flight_widget
+        else
+            num_flights = flight_count_from_firmware_2_4
+        end
     end
 
     wgt.values.model_total_flights = num_flights

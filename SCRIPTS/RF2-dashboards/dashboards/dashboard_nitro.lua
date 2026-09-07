@@ -131,7 +131,10 @@ M.build_ui = function(wgt)
             {type="rectangle", x=6*lvSCALE, y=isizeh-25*lvSCALE, w=isizew-20, h=20*lvSCALE, filled=true, rounded=8, color=DARKGREY, opacity=200},
             {type="label", text=function() return wgt.values.craft_name end,  x=15*lvSCALE, y=isizeh-25*lvSCALE, font=FS.FONT_8 ,color=txtColor},
             -- flights count
-            {type="label", text=function() return string.format("%s Flights", wgt.values.model_total_flights or "000") end , x=8*lvSCALE, y=isizeh+10*lvSCALE, font=FS.FONT_8, color=lcd.RGB(0x999999)},
+            {type="label", 
+                text=function()
+                    return wgt.options.flightsCounterSource == 3 and "" or string.format("%s Flights", wgt.values.model_total_flights or "000")
+                end, x=8*lvSCALE, y=isizeh+10*lvSCALE, font=FS.FONT_8, color=lcd.RGB(0x999999)},
     }})
 
 
