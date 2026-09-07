@@ -11,9 +11,12 @@ local M = {
             "Summary 1",
             "Summary 2",
         }},
+        {"flightsCounterSource"       , CHOICE, 2 , {
+            "Flights Widget Counter",
+            "RF2 Flights Counter",
+        }},
         {"enableAudio"        , BOOL  ,   1         }, -- 0=disable audio announcements, 1=enable audio announcements
         {"showTotalVoltage"   , BOOL  ,   0         }, -- 0=Show as average Lipo cell level, 1=show the total voltage (voltage as is)
-        {"useRfFlightsCounter", BOOL  ,   0         }, -- 0=use flights widget counter, 1=use RF2 flights counter
         {"reserve_capa"       , VALUE ,   0, 0, 40  },
         {"currTop"            , VALUE , 200, 60,400 },
         {"tempTop"            , VALUE ,  80, 30,150 },
@@ -23,7 +26,7 @@ local M = {
     translate = function(name)
         local translations = {
             showTotalVoltage="Show Voltage as Total",
-            useRfFlightsCounter="Use RF2 Flights Counter (If available)",
+            flightsCounterSource="Flight Counter Source",
             -- enableCapa="Enable Capacity",
             -- useTelemetry="Use Telemetry (faster update)",
             guiStyle="On Flight Dashboard",
