@@ -23,7 +23,7 @@ local M = {
         {"enableAudio"        , BOOL  ,   1         }, -- 0=disable audio announcements, 1=enable audio announcements
         {"showTotalVoltage"   , BOOL  ,   0         }, -- 0=Show as average Lipo cell level, 1=show the total voltage (voltage as is)
         {"reserve_capa"       , VALUE ,   0, 0, 40  },
-        {"currTop"            , VALUE , 200, 60,400 },
+        {"currTop"            , VALUE , 200, 20,400 },
         {"tempTop"            , VALUE ,  80, 30,150 },
         {"textColor"          , COLOR , WHITE       },
     },
