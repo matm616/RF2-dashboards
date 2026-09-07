@@ -213,7 +213,7 @@ M.build_ui = function(wgt)
     })
 
     -- app_ver
-    pMain:box({x=LCD_W -50*lvSCALE, y=LCD_H -82*lvSCALE,
+    pMain:box({x=LCD_W -104*lvSCALE, y=LCD_H -82*lvSCALE,
         children={
             {type="label", text=function() return string.format("v%s", wgt.app_ver) end , x=0, y=0, font=FS.FONT_6 ,color=lcd.RGB(0x999999)},
         }
