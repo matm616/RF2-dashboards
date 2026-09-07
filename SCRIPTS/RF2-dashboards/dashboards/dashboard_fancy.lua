@@ -154,7 +154,9 @@ M.build_ui = function(wgt)
             {type="label", text=function() return wgt.values.craft_name end,  x=15*lvSCALE, y=isizeh-25*lvSCALE, font=FS.FONT_8 ,color=txtColor},
             -- flights count
             {type="label", x=8*lvSCALE, y=isizeh+10*lvSCALE, font=FS.FONT_8, color=lcd.RGB(0x999999),
-                text=function() return string.format("%s Flights", wgt.values.model_total_flights or "000") end,
+                text=function()
+                    return wgt.options.flightsCounterSource == 3 and "" or string.format("%s Flights", wgt.values.model_total_flights or "000")
+                end,
             },
         }
     })

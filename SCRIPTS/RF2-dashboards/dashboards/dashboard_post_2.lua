@@ -76,7 +76,9 @@ M.build_ui = function(wgt)
         children={
             {type="label", text="Total Flights", x=0, y=0, font=FS.FONT_6, color=titleGreyColor},
             {type="label", x=0, y=15*lvSCALE, font=FS.FONT_16 ,color=WHITE,
-                text=function() return string.format("%s", wgt.values.model_total_flights or "000") end
+                text=function()
+                    return wgt.options.flightsCounterSource == 3 and "" or string.format("%s Flights", wgt.values.model_total_flights or "000")
+                end
             },
         }
     })
