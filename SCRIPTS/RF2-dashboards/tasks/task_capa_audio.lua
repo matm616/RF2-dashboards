@@ -17,20 +17,12 @@ M.init = function(wgt)
 end
 
 local function playCapacityValue_by_percent(wgt)
-    if wgt.options.enableAudio == 0 then
-        return
-    end
-
     log("playCapacityValue: %s", wgt.values.capaPercent)
     playFile(baseDir.."/sounds/capacity.wav")
     playNumber(wgt.values.capaPercent, 13, 0)
 end
 
 local function playCapacityValue_by_mah(wgt)
-    if wgt.options.enableAudio == 0 then
-        return
-    end
-
     log("playCapacityValue: %s", wgt.values.capaPercent)
     local capa_used_parted = math.ceil(wgt.values.capaUsed / 100) * 100
     playNumber(capa_used_parted, 14, 0)
